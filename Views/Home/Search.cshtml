@@ -1,0 +1,51 @@
+@model Skill4.customs.HomeModel
+@{
+    ViewBag.Title = "Search";
+}
+
+<h1>Welcome</h1>
+<div class="text-center">
+   <hr/>
+   <form method="get" asp-action="GetProviders">
+   <select asp-for="CityCode" asp-items='@(new SelectList(@Model.cities,"CityCode","CityName"))'>
+   </select>
+   <br>
+   <br>
+   
+    <select asp-for="ServiceSysId" asp-items='@(new SelectList(@Model.services,"ServiceSysId","ServiceTitle"))'>
+   </select>
+          <input type="submit" />
+   </form>
+
+ 
+  
+<h1>Providers</h1>
+<div class="row">
+    <div class="col">
+        @if (Model.serviceProviderss != null) 
+        {
+            <table class="table table-hover">
+                <tr>
+                    <th>Id</th>
+                     <th>Name</th>
+                    <th>AvgCharge</th>
+                    <th>Verified</th>
+                    <th> Request </th>
+                </tr>
+
+                @foreach (var task in Model.serviceProviderss)
+                {
+                    <tr>
+                        <td>@task.ServiceProviderSysId</td>
+                        <td>@task.Name</td>
+                         <td>@task.AvgCharge</td>                      
+                            <td>@task.Verified</td>
+                       <td>  <a href="/Home/Request"> Request</a> </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
+  
+</div>

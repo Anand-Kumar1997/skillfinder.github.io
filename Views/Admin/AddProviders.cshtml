@@ -1,0 +1,18 @@
+@model ServiceProviders
+
+@{
+    ViewData["Title"] = "AddProvider";
+}
+
+<h2>Add Provider</h2>
+<form action="~/Admin/SavePro" method="POST">
+ <div class="form-group">
+         <label>Email</label>
+         <input asp-for="@Model.Email" type="text" class="form-control" />
+     </div>
+     <div class="form-group">
+         <label>Name</label>
+         <input asp-for="@Model.Name" class="form-control /">
+     </div>
+     <button type="submit" class="btn btn-primary">Save</button>
+</form>

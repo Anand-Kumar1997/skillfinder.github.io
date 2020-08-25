@@ -1,0 +1,79 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 text-color="#ffffff">Dashboard <small>Quick Stats and Views</small></h1>
+ <section class="statistics">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="box">
+                <i class="fa fa-envelope fa-fw bg-primary"></i>
+                <div class="info">          
+          <h3> <a href="\Admin\Cities">Cities&nbsp; &nbsp;</a></h3>
+                 <span>5</span>
+                  <p>Total No. of cities</p>
+                </div>
+              </div>
+              </div>
+                     <div class="col-md-4">
+              <div class="box">
+                <i class="fa fa-file fa-fw danger"></i>
+                <div class="info">
+                  <h3><a href="\Admin\Services">Services&nbsp; &nbsp;</a></h3> <span>5</span>
+                  <p>Total no.of Services</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="box">
+                <i class="fa fa-users fa-fw success"></i>
+                <div class="info">
+                  <h3><a href="\Admin\Providers">Providers</a></h3>
+                   <span>10</span>
+                  <p>Total no. of providers </p>
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+            
+
+<h1>List of registered Users</h1>
+
+
+
+<div class="row">
+    <div class="col">
+        @if (Model != null) 
+        {
+            <table class="table table-hover table-dark table-bordered">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>EmailId </th>
+                    <th>Registered On</th>
+                  
+                </tr>
+
+                @foreach (var task in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="">@task.UserSysId</a>
+                        </td>
+                        <td>@task.UserName</td>
+                        <td>@task.UserEmail</td>
+                        <td>@task.RegOn</td>
+                      
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
+

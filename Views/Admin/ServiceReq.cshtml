@@ -1,0 +1,39 @@
+@model List<ServiceRequests>
+    
+@{
+    ViewData["Title"] = "Manage";
+}
+<h1>Service Request</h1>
+<div class="row">
+    <div class="col">
+        @if (Model != null) 
+        {
+            <table class="table table-hover">
+                <tr>
+                    <th>RequestSysId</th>
+                    <th>UserSysId</th>
+                    <th>ServiceProviderSysId</th>
+                     <th>CityCode</th>
+                    <th>UpdatedOn </th>
+                     <th>RequestStatus</th>
+                </tr>
+
+                @foreach (var task in Model)
+                {
+                    <tr>
+                        <td>@task.RequestSysId</td>
+                        <td>@task.UserSysId</td>
+                        <td>@task.ServiceProviderSysId</td>
+                        <td>@task.CityCode</td>
+                        <td>@task.UpdatedOn</td>
+                        <td>@task.RequestStatus</td>
+                        <td>
+                            <a href="">Edit</a> 
+                            <a href="/Admin/Delete?serviceProviderSysId=@task.ServiceProviderSysId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>

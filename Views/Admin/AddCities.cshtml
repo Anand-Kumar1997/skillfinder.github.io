@@ -1,0 +1,18 @@
+@model Cities
+
+@{
+    ViewData["Title"] = "AddCity";
+}
+
+<h2>Add City</h2>
+<form action="~/Admin/Save" method="POST">
+     <div class="form-group">
+         <label>City Code</label>
+         <input asp-for="@Model.CityCode" type="text" class="form-control" />
+     </div>
+     <div class="form-group">
+         <label>City Name</label>
+         <input asp-for="@Model.CityName" class="form-control /">
+     </div>
+     <button type="submit" class="btn btn-primary">Save</button>
+</form>

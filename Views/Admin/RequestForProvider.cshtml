@@ -1,0 +1,36 @@
+@model List<RequestForProvider>
+
+@{
+    ViewData["Title"] = "Request for Provider";
+}
+
+
+<h1>RequestForProvider List</h1>
+   
+<div class="row">
+    <div class="col">
+        @if(Model != null)
+        {
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>User Id</th>
+                    <th>Service Name</th>
+                    <th>Requested On</th>
+                    <th>Action</th>
+                </tr>
+                @foreach(var task in Model)
+                {
+                    <tr>
+                        <td>@task.UserId</td>
+                        <td>@task.ServiceName</td>
+                        <td>@task.RequestedOn</td>
+                        <td>
+                            <a href="#">Approve</a>
+                            <a href="~/Admin/DeleteProReq?Id=@task.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+</div>
